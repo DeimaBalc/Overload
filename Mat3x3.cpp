@@ -73,6 +73,43 @@ std::ostream& operator<<(std::ostream& os, const Vec3D& v) {
     return os << v.to_string();
 }
 
+std::istream& operator>>(std::istream& is, Vec3D& v) { 
+    double v1, v2, v3;
+    
+    std::cout << "Iveskite vektoriaus koordinates (x, y, z): ";
+
+    is >> v1 >> v2 >> v3;
+
+    v = Vec3D(v1, v2, v3);
+    
+    return is;
+}
+
+std::istream& operator>>(std::istream& is, Mat3x3& m) { 
+    double x, y, z;
+    Vec3D v1, v2, v3;
+    
+    std::cout << "Iveskite 1 vektoriaus koordinates (x, y, z): ";
+
+    is >> x >> y >> z;
+    v1 = Vec3D(x, y, z);
+
+    std::cout << "Iveskite 2 vektoriaus koordinates (x, y, z): ";
+
+    is >> x >> y >> z;
+    v2 = Vec3D(x, y, z);
+
+    std::cout << "Iveskite 3 vektoriaus koordinates (x, y, z): ";
+
+    is >> x >> y >> z;
+    v3 = Vec3D(x, y, z);
+
+    m = Mat3x3(v1, v2, v3);
+    
+    return is;
+}
+
+
 Vec3D& Vec3D::operator=(const Vec3D& kitas) {
     if (this != &kitas) {
         v1 = kitas.v1;

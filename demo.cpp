@@ -4,6 +4,15 @@
 
 void testuotiVisusOperatorius() {
     std::cout << "\n=== Visų Operatorių Testavimas ===\n";
+
+    Vec3D a;
+
+    std::cin>>a;
+    std::cout << "Vektorius: " << a.to_string() << std::endl;
+
+    Mat3x3 m;
+    std::cin >> m;
+    std::cout << "Matrica m:\n" << m.toString() << std::endl;
     
     // Pradinės matricos
     Mat3x3 m1(Vec3D(1,2,3), Vec3D(4,5,6), Vec3D(7,8,9));

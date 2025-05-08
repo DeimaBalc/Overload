@@ -96,6 +96,7 @@ public:
     friend Vec3D operator*(const Vec3D& v, const Vec3D& u); //Vektroius iš vektoriaus
     friend Vec3D operator*(const Vec3D& v, const Mat3x3& m); //Vektoriaus iš matricos
     friend std::ostream& operator<<(std::ostream& os, const Vec3D& v); //Išvestis
+    friend std::istream& operator>>(std::istream& is, Vec3D& v); //ivestis
 
     Vec3D operator/(double k) const; //Dalyba iš skaičiaus
     Vec3D operator++() ; //+1
@@ -189,9 +190,11 @@ public:
     bool operator!=(const Mat3x3& m) const;
 
     
-    //Dar galima perkrauti |, &, &&, ||, <<, >>, <<=, >>=, &=, |=
+    //Dar galima perkrauti |, &, &&, ||, <<, >>, <<=, >>=, &=, |=, []
     
-    std::string toString() const;//išvestis
-    Mat3x3 operator-() const; //neigimas
+    friend std::istream& operator>>(std::istream& is, Mat3x3& m); //ivestis
+
+    std::string toString() const;  // semicolon added
+    Mat3x3 operator-() const;      // semicolon added
     double operator()(int i, int j) const;//matricos elementas
 };
